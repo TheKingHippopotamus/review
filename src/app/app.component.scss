@@ -117,23 +117,40 @@
     }
 }
 
-// Phone Input with Prefix
+// Phone Input with Prefix (Unified Box)
 .phone-input-group {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: stretch;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: white;
+    transition: border-color 0.3s ease;
+
+    &:focus-within {
+        border-color: var(--primary-color);
+    }
 
     .phone-prefix {
         padding: 0.75rem 1rem;
-        background-color: #f0f0f0;
-        border: 1px solid var(--border-color);
-        border-radius: 4px;
+        background-color: #f9f9f9;
+        border-right: 1px solid var(--border-color);
         font-weight: 500;
         color: var(--text-dark);
+        display: flex;
+        align-items: center;
     }
 
     .phone-input {
         flex: 1;
+        border: none;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        background-color: white;
+
+        &:focus {
+            outline: none;
+        }
     }
 }
 
@@ -355,14 +372,17 @@
     }
 
     .phone-input-group {
-        flex-direction: column;
+        // Keep it on one line even on mobile
+        flex-direction: row;
 
         .phone-prefix {
-            width: 100%;
+            padding: 0.65rem 0.85rem;
+            font-size: 0.95rem;
         }
 
         .phone-input {
-            width: 100%;
+            padding: 0.65rem 0.85rem;
+            font-size: 0.95rem;
         }
     }
 
