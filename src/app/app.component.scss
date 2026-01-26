@@ -254,3 +254,110 @@
     margin: 0.25rem 0;
   }
 }
+// ========================================
+// RESPONSIVE DESIGN - Media Queries
+// ========================================
+
+// Tablet (768px - 1024px)
+@media (max-width: 1024px) {
+  .form-container {
+    max-width: 700px;
+    padding: 2rem 1.5rem;
+  }
+  
+  .form-content {
+    padding: 1.5rem;
+  }
+  
+  .form-header {
+    h1 {
+      font-size: 1.75rem;
+    }
+  }
+}
+
+// Mobile (320px - 767px)
+@media (max-width: 767px) {
+  .header {
+    padding: 1rem 1.5rem;
+    
+    .logo {
+      height: 32px;
+    }
+  }
+  
+  .form-container {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+  }
+  
+  .form-content {
+    padding: 1rem;
+  }
+  
+  .form-header {
+    margin-bottom: 2rem;
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+    
+    .subtitle {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .form-input {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+  }
+  
+  .phone-input-group {
+    flex-direction: column;
+    
+    .phone-prefix {
+      width: 100%;
+    }
+    
+    .phone-input {
+      width: 100%;
+    }
+  }
+  
+  .submit-button {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .recaptcha-container {
+    .recaptcha-box {
+      padding: 0.75rem;
+    }
+  }
+}
+
+// Extra small mobile (320px - 480px)
+@media (max-width: 480px) {
+  .form-header {
+    h1 {
+      font-size: 1.25rem;
+    }
+  }
+  
+  .checkbox-group {
+    flex-direction: column;
+    gap: 0.5rem;
+    
+    .checkbox-input {
+      margin-top: 0;
+    }
+  }
+}
