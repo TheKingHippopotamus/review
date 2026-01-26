@@ -16,36 +16,40 @@
       </div>
 
       <!-- The Form -->
-      <form class="contact-form">
-        
+      <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
         <!-- 1. First Name -->
         <div class="form-group">
           <label for="firstName">1. First Name <span class="required">*</span></label>
-          <input 
-            type="text" 
-            id="firstName" 
-            placeholder="Enter first name"
-            class="form-input">
+          <input type="text" id="firstName" formControlName="firstName" placeholder="Enter first name"
+            [class.error]="isFieldInvalid('firstName')" class="form-input">
+          <div class="error-message" *ngIf="isFieldInvalid('firstName')">
+            <span *ngIf="f['firstName'].errors?.['required']">First name is required</span>
+            <span *ngIf="f['firstName'].errors?.['minlength']">First name must be at least 2 characters</span>
+          </div>
         </div>
 
         <!-- 2. Last Name -->
         <div class="form-group">
           <label for="lastName">2. Last Name <span class="required">*</span></label>
-          <input 
-            type="text" 
-            id="lastName" 
-            placeholder="Enter last name"
-            class="form-input">
+          <input type="text" id="lastName" formControlName="lastName" placeholder="Enter last name"
+            [class.error]="isFieldInvalid('lastName')" class="form-input">
+          <div class="error-message" *ngIf="isFieldInvalid('lastName')">
+            <span *ngIf="f['lastName'].errors?.['required']">Last name is required</span>
+            <span *ngIf="f['lastName'].errors?.['minlength']">Last name must be at least 2 characters</span>
+          </div>
         </div>
 
         <!-- 3. Email Address -->
         <div class="form-group">
           <label for="email">3. Email Address <span class="required">*</span></label>
-<p class="field-hint">Enter a valid email address (e.g. yourname&#64;example.com)</p>          <input 
-            type="email" 
-            id="email" 
-            placeholder="Enter email"
-            class="form-input">
+          <p class="field-hint">Enter a valid email address (e.g. yourname&#64;example.com)</p>
+          <input type="email" id="email" formControlName="email" placeholder="Enter email"
+            [class.error]="isFieldInvalid('email')" class="form-input">
+          <div class="error-message" *ngIf="isFieldInvalid('email')">
+            <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+            <span *ngIf="f['email'].errors?.['email']">Please enter a valid email address</span>
+          </div>
         </div>
 
         <!-- 4. Phone Number -->
@@ -54,37 +58,40 @@
           <p class="field-hint">This is the number we will call to follow up with you about your application</p>
           <div class="phone-input-group">
             <span class="phone-prefix">+254</span>
-            <input 
-              type="tel" 
-              id="phoneNumber" 
-              placeholder="Enter number"
-              class="form-input phone-input">
+            <input type="tel" id="phoneNumber" formControlName="phoneNumber" placeholder="Enter number"
+              [class.error]="isFieldInvalid('phoneNumber')" class="form-input phone-input" maxlength="9">
+          </div>
+          <div class="error-message" *ngIf="isFieldInvalid('phoneNumber')">
+            <span *ngIf="f['phoneNumber'].errors?.['required']">Phone number is required</span>
+            <span *ngIf="f['phoneNumber'].errors?.['pattern']">Phone number must be exactly 9 digits</span>
           </div>
         </div>
 
         <!-- 5. Verify Phone Number -->
         <div class="form-group">
-          <label for="verifyPhone">5. Verify Phone Number <span class="required">*</span></label>
+          <label for="verifyPhoneNumber">5. Verify Phone Number <span class="required">*</span></label>
           <div class="phone-input-group">
             <span class="phone-prefix">+254</span>
-            <input 
-              type="tel" 
-              id="verifyPhone" 
-              placeholder="Enter number"
-              class="form-input phone-input">
+            <input type="tel" id="verifyPhoneNumber" formControlName="verifyPhoneNumber" placeholder="Enter number"
+              [class.error]="isFieldInvalid('verifyPhoneNumber')" class="form-input phone-input" maxlength="9">
+          </div>
+          <div class="error-message" *ngIf="isFieldInvalid('verifyPhoneNumber')">
+            <span *ngIf="f['verifyPhoneNumber'].errors?.['required']">Phone number verification is required</span>
+            <span *ngIf="f['verifyPhoneNumber'].errors?.['pattern']">Phone number must be exactly 9 digits</span>
+            <span *ngIf="f['verifyPhoneNumber'].errors?.['mismatch']">Phone numbers do not match</span>
           </div>
         </div>
 
         <!-- 6. Second Phone Number (Optional) -->
         <div class="form-group">
-          <label for="secondPhone">6. Do you have a second phone number? (Optional)</label>
+          <label for="secondPhoneNumber">6. Do you have a second phone number? (Optional)</label>
           <div class="phone-input-group">
             <span class="phone-prefix">+254</span>
-            <input 
-              type="tel" 
-              id="secondPhone" 
-              placeholder="Enter number"
-              class="form-input phone-input">
+            <input type="tel" id="secondPhoneNumber" formControlName="secondPhoneNumber" placeholder="Enter number"
+              [class.error]="isFieldInvalid('secondPhoneNumber')" class="form-input phone-input" maxlength="9">
+          </div>
+          <div class="error-message" *ngIf="isFieldInvalid('secondPhoneNumber')">
+            <span *ngIf="f['secondPhoneNumber'].errors?.['pattern']">Phone number must be exactly 9 digits</span>
           </div>
         </div>
 
@@ -94,14 +101,17 @@
             7. What's your national identity number? <span class="required">*</span>
             <span class="info-icon" title="More information">ⓘ</span>
           </label>
-          <input 
-            type="text" 
-            id="nationalId" 
-            placeholder="Enter your identity number"
-            class="form-input">
+          <input type="text" id="nationalId" formControlName="nationalId" placeholder="Enter your identity number"
+            [class.error]="isFieldInvalid('nationalId')" class="form-input">
           <p class="field-explanation">
-            Your ID is required to verify your identity in line with CBK regulations. Avenews complies with CBK regulations and is licensed as a data controller by the ODPC. Your information is kept secure and confidential.
+            Your ID is required to verify your identity in line with CBK regulations. Avenews complies with CBK
+            regulations and is licensed as a data controller by the ODPC. Your information is kept secure and
+            confidential.
           </p>
+          <div class="error-message" *ngIf="isFieldInvalid('nationalId')">
+            <span *ngIf="f['nationalId'].errors?.['required']">National ID is required</span>
+            <span *ngIf="f['nationalId'].errors?.['minlength']">National ID must be at least 5 characters</span>
+          </div>
         </div>
 
         <!-- Required Notice -->
@@ -109,11 +119,16 @@
 
         <!-- Acceptance Checkbox -->
         <div class="checkbox-group">
-          <input type="checkbox" id="acceptance" class="checkbox-input">
+          <input type="checkbox" id="acceptance" formControlName="acceptance" class="checkbox-input">
           <label for="acceptance" class="checkbox-label">
-            By checking the acceptance box and submitting this application, you confirm that you have read and agree to our 
-            <a href="#" class="link">updated privacy policy</a> and that you are at least 18 years or are registered entity.
+            By checking the acceptance box and submitting this application, you confirm that you have read and agree to
+            our
+            <a href="#" class="link">updated privacy policy</a> and that you are at least 18 years or are registered
+            entity.
           </label>
+        </div>
+        <div class="error-message" *ngIf="isFieldInvalid('acceptance')">
+          <span>You must accept the terms and conditions</span>
         </div>
 
         <!-- Disclaimer Text -->
@@ -124,10 +139,13 @@
         <!-- reCAPTCHA Placeholder -->
         <div class="recaptcha-container">
           <div class="recaptcha-box">
-            <input type="checkbox" id="recaptcha" class="checkbox-input">
+            <input type="checkbox" id="recaptcha" formControlName="recaptcha" class="checkbox-input">
             <label for="recaptcha" class="checkbox-label">I'm not a robot</label>
             <span class="recaptcha-logo">reCAPTCHA</span>
           </div>
+        </div>
+        <div class="error-message" *ngIf="isFieldInvalid('recaptcha')">
+          <span>Please verify you are not a robot</span>
         </div>
 
         <!-- Submit Button -->
