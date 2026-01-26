@@ -117,25 +117,24 @@
         <!-- Required Notice -->
         <p class="required-notice">(Required) <span class="required">*</span></p>
 
-        <!-- Acceptance Checkbox -->
-        <div class="checkbox-group">
-          <input type="checkbox" id="acceptance" formControlName="acceptance" class="checkbox-input">
-          <label for="acceptance" class="checkbox-label">
-            By checking the acceptance box and submitting this application, you confirm that you have read and agree to
-            our
-            <a href="#" class="link">updated privacy policy</a> and that you are at least 18 years or are registered
-            entity.
-          </label>
-        </div>
-        <div class="error-message" *ngIf="isFieldInvalid('acceptance')">
-          <span>You must accept the terms and conditions</span>
+        <!-- Acceptance Checkbox in Pink Box -->
+        <div class="acceptance-box">
+          <div class="checkbox-group">
+            <input type="checkbox" id="acceptance" formControlName="acceptance" class="checkbox-input">
+            <label for="acceptance" class="checkbox-label-red">
+              By checking the acceptance box and submitting an application, you confirm that you have read and agree to
+              this
+              <a href="#" class="link-bold">Application T&C Bundle</a> and that you are duly authorized to bind the
+              Applicant entity.
+            </label>
+          </div>
         </div>
 
-        <!-- Disclaimer Text -->
-        <p class="disclaimer">
-          You must accept our Application T&C before proceeding with your application.
+        <!-- Show this message only if checkbox is NOT checked -->
+        <p class="disclaimer-plain" *ngIf="!contactForm.get('acceptance')?.value">
+          You must accept the Application T&C Bundle to proceed with your application.
         </p>
-
+        
         <!-- reCAPTCHA Placeholder -->
         <div class="recaptcha-container">
           <div class="recaptcha-box">

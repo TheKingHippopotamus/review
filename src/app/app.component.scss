@@ -148,11 +148,35 @@
     }
 }
 
+// Acceptance Box with Pink Background (for checkbox)
+.acceptance-box {
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+    border-left: 4px solid var(--error-color);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+
+    // Target the link directly inside this box
+    a.link-bold {
+        color: #16a5b8 !important; // Bright turquoise
+        text-decoration: underline !important;
+        font-weight: 700 !important;
+
+        &:hover {
+            text-decoration: underline !important;
+        }
+
+        &:visited {
+            color: #16a5b8 !important;
+        }
+    }
+}
+
 // Checkbox Group
 .checkbox-group {
     display: flex;
     gap: 0.75rem;
-    margin-bottom: 1rem;
 
     .checkbox-input {
         margin-top: 0.25rem;
@@ -176,14 +200,22 @@
             }
         }
     }
+
+    // Red checkbox label (for acceptance box)
+    .checkbox-label-red {
+        font-size: 0.9rem;
+        color: var(--error-color);
+        line-height: 1.6;
+        font-weight: 700;
+    }
 }
 
-// Disclaimer
-.disclaimer {
-    font-size: 0.85rem;
-    color: var(--text-gray); // Changed from error-color to gray
+// Plain Red Text (Below acceptance box, no background)
+.disclaimer-plain {
+    font-size: 0.9rem;
+    color: var(--error-color);
     margin-bottom: 1.5rem;
-    font-style: italic;
+    line-height: 1.6;
 }
 
 // reCAPTCHA Container
