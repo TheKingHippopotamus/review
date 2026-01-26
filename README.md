@@ -123,16 +123,47 @@ The application is fully responsive across all device sizes:
 - **Font Family:** Inter, Segoe UI, sans-serif
 - **Figma Design:** [View Design](https://www.figma.com/design/wwqZ2A0U1pT1QPNfw1nYpV/Avenews-Dev-exercise)
 
-## 🚀 Future Enhancements
+## 🚀 Bonus Feature - Multi-Country Support
 
 **Feature Branch: `feature/country-selector`**
 
-A bonus implementation showcasing additional functionality:
-- Multi-country phone number support
-- Dynamic country code dropdown
-- International phone validation
+Beyond the core requirements, I've implemented an enhanced version with international phone number support:
 
-This demonstrates the ability to think beyond requirements and implement user-centric features.
+### Features Added:
+- ✅ **50+ Country Support:** Dropdown selector with countries from all continents
+- ✅ **Dynamic Validation:** Phone number validation automatically adjusts based on selected country
+- ✅ **Alphabetical Ordering:** Countries sorted alphabetically (Kenya remains default)
+- ✅ **Smart Digit Validation:** Each country has correct digit requirements (e.g., Kenya: 9 digits, USA: 10 digits)
+- ✅ **Consistent UX:** All three phone fields (main, verify, optional) support country selection
+- ✅ **Real-time Updates:** Changing country immediately updates validation rules
+
+### Technical Implementation:
+- Used Angular's `FormsModule` with two-way binding (`[(ngModel)]`)
+- Dynamic form validators that update based on country selection
+- Maintained phone number matching validation across countries
+- Graceful handling of optional second phone number
+
+### Why This Matters:
+This enhancement demonstrates:
+- Thinking beyond requirements to improve user experience
+- Understanding of international phone number formats
+- Ability to implement dynamic form validation
+- Clean code architecture that extends base functionality
+
+### Viewing the Feature:
+```bash
+# Clone the repository
+git clone https://github.com/dornoy5/avenews-contact-form.git
+
+# Switch to feature branch
+git checkout feature/country-selector
+
+# Install and run
+npm install
+ng serve
+```
+
+**Note:** The main branch contains the pixel-perfect Figma implementation as requested. This feature branch showcases initiative and enhanced functionality.
 
 ## 📝 Development Process
 
