@@ -4,7 +4,7 @@ A responsive contact form application built with Angular 17, implementing pixel-
 
 ## 🚀 Live Demo
 
-[View Live Application](#) _(Link will be added after deployment)_
+[View Live Application](https://dornoy5.github.io/avenews-contact-form/) — _Hosted on GitHub Pages_
 
 ## 📋 Project Overview
 
@@ -75,21 +75,40 @@ This project is a technical assessment for the Junior Full-Stack Developer posit
    Navigate to http://localhost:4200
 ```
 
+## 📤 Deploy to GitHub Pages
+
+The project is configured to deploy to GitHub Pages via GitHub Actions.
+
+### One-time setup
+
+1. In your GitHub repo: **Settings → Pages**
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. Push to the `main` branch (or run the workflow manually from the **Actions** tab)
+
+### How it works
+
+- Pushing to `main` triggers the **Deploy to GitHub Pages** workflow
+- The app is built with base href `/avenews-contact-form/` and deployed to `https://<username>.github.io/avenews-contact-form/`
+- To build locally for GitHub Pages: `npm run build:github-pages` (output: `dist/avenews-contact-form/browser/`)
+
 ## 🏗️ Project Structure
 ```
 avenews-contact-form/
+├── .github/
+│   └── workflows/
+│       └── deploy-pages.yml       # GitHub Pages deployment
 ├── src/
 │   ├── app/
 │   │   ├── app.component.ts       # Form logic and validation
 │   │   ├── app.component.html     # Form structure
 │   │   ├── app.component.scss     # Component styles
-│   │   └── app.config.ts          # App configuration
+│   │   └── app.config.ts         # App configuration
 │   ├── assets/
 │   │   └── Logo.png               # Avenews logo
 │   ├── styles.scss                # Global styles and variables
 │   └── index.html                 # Main HTML entry
-├── angular.json                   # Angular configuration
-├── package.json                   # Dependencies
+├── angular.json                   # Angular configuration (incl. github-pages)
+├── package.json                   # Dependencies & build:github-pages script
 └── README.md                      # Documentation
 ```
 
