@@ -32,7 +32,7 @@ jobs:
         run: npm ci
 
       - name: Build for GitHub Pages
-        run: npm run build:github-pages
+        run: npx ng build --configuration=github-pages --base-href /${{ github.event.repository.name }}/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
